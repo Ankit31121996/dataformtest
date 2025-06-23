@@ -1,0 +1,12 @@
+config {
+  type:"operations",
+  schema:"dataform2",
+  name:"create_test11",
+  tags:"ctnew"
+}
+
+INSERT INTO `mydataform.dataform2.counter_table_11` (counter, inserted_at)
+SELECT 
+  IFNULL(MAX(counter), 0) + 1, 
+  CURRENT_TIMESTAMP()
+FROM `mydataform.dataform2.counter_table_11`;
